@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+:root
+{
+--Red: hsl(0, 78%, 62%);
+--Cyan: hsl(180, 62%, 55%);
+--Orange: hsl(34, 97%, 64%);
+--Blue: hsl(212, 86%, 64%);
+--VeryDarkBlue: hsl(234, 12%, 34%);
+--GrayishBlue: hsl(229, 6%, 66%);
+--VeryLightGray: hsl(0, 0%, 98%)  ;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+*
+{
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.body
+{
+  display: grid;
+  place-content: center;
+  background-color: var(--VeryLightGray);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main
+{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  max-width: 375px;
+  gap: 50px;
 }
-
-.App-link {
-  color: #61dafb;
+.top
+{
+  text-align: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.span,p
+{
+  font-weight: 200;
+  color: var(--GrayishBlue);
+}
+.top p
+{
+  margin:0 30px;
+}
+h1
+{
+  color:var(--VeryDarkBlue)
+}
+.card-container
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card
+{ 
+  padding:10px 20px;
+  margin: 20px;
+  text-align: left;
+  background-color: white;
+  box-shadow: 0 -5px var(--Cyan), 0px 0px 20px 5px var(--GrayishBlue);
+  border-radius: 5px;
+}
+.card:nth-child(2)
+{
+  box-shadow: 0 -5px var(--Red), 0px 0px 20px 5px var(--GrayishBlue);
+}
+.card:nth-child(3)
+{
+  box-shadow: 0 -5px var(--Orange), 0px 0px 20px 5px var(--GrayishBlue);
+}
+.card:nth-child(4)
+{
+  box-shadow: 0 -5px var(--Blue), 0px 0px 20px 5px var(--GrayishBlue);
+}
+.card-img
+{
+  float: right;
+}
+@media (width>800px) {
+  .body
+  {
+    width: 1600px;
   }
-  to {
-    transform: rotate(360deg);
+  .main
+  {
+    max-width: 1440px;
+  }
+  .top
+  {
+    margin:0 30% ;
+  }
+  .top p
+  {
+    padding: 20px;
+    margin: 0;
+  }
+  .card-container
+  {
+    display: grid;
+    margin: 0 120px ;
+    grid-template-columns: 400px 400px 400px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    ". builder ."
+    "supervisor builder calculator"
+    "supervisor karma calculator"
+    ". karma .";
+  }
+  .card:nth-child(1)
+  {
+    grid-area: supervisor;
+  }
+  .card:nth-child(2)
+  {
+    grid-area: builder;
+  }
+  .card:nth-child(3)
+  {
+    grid-area: karma;
+  }
+  .card:nth-child(4)
+  {
+    grid-area: calculator;
+  }
+  .card-img
+  {
+    padding: 40px 0 10px 0;
   }
 }
